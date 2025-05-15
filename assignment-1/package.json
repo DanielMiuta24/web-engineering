@@ -1,0 +1,23 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "description": "Assignment 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielMiuta24/web-engineering.git"
+  },
+  "keywords": [
+    "Assignment",
+    "1"
+  ],
+  "author": "Daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielMiuta24/web-engineering/issues"
+  },
+  "homepage": "https://github.com/DanielMiuta24/web-engineering#readme"
+}
