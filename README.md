@@ -22,8 +22,8 @@ assignment-1/
 ### 1. Clone the repository and navigate to the assignment folder:
 
 ```bash
-git clone https://github.com/your-username/web-engineering.git
-cd web-engineering/assignment-1
+git clone https://github.com/DanielMiuta24/web-engineering.git
+cd assignment-1
 ```
 
 ### 2. Run the server using Node.js:
