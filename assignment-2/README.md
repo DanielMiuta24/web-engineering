@@ -44,7 +44,7 @@ This application allows users to **Create**, **Read**, **Update**, and **Delete*
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/yourusername/todo-app.git
+   git clone https://github.com/DanielMiuta24/web-engineering.git/assignment-2
    cd todo-app
    ```
 2. **Install dependencies**  
@@ -94,7 +94,7 @@ This application allows users to **Create**, **Read**, **Update**, and **Delete*
 ## Project Structure
 
 ```
-├── public/             # Static UI (index.html, CSS, client JS)
+├── public/index.html             # Static UI (index.html, CSS, client JS)
 ├── models/
 │   └── Task.js         # Mongoose schema for tasks
 ├── server.js           # Express server and API routes
