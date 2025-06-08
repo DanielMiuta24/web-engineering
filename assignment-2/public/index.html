@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To-Do List</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
+    li { display: flex; align-items: center; margin: .5rem 0; }
+    li input[type="checkbox"] { margin-right: .5rem; }
+    button { margin-left: auto; }
+  </style>
+</head>
+<body>
+  <h1>My To-Do List</h1>
+  <input id="newTask" placeholder="New task…" />
+  <button onclick="addTask()">Add</button>
+  <ul id="taskList"></ul>
+
+  <script>
+    const API = 'http://localhost:3000/api/tasks';
+
+    async function fetchTasks() {
+      const res = await fetch(API);
+      const tasks = await res.json();
+      const list = document.getElementById('taskList');
+      list.innerHTML = '';
+      tasks.forEach(t => {
+      
+        const li = document.createElement('li');
+        const checkbox = document.createElement('input');
+        const span = document.createElement('span');
+        const del = document.createElement('button');
+
+       
+        checkbox.type = 'checkbox';
+        checkbox.checked = t.completed;
+        checkbox.onchange = () => toggleTask(t._id, checkbox.checked);
+
+       
+        
+        span.textContent = t.title;
+        if (t.completed) span.style.textDecoration = 'line-through';
+
+       
+        del.textContent = 'Delete';
+        del.onclick = e => {
+          e.stopPropagation();
+          deleteTask(t._id);
+        };
+
+      
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        li.appendChild(del);
+        list.appendChild(li);
+      });
+    }
+
+    async function addTask() {
+      const title = document.getElementById('newTask').value.trim();
+      if (!title) return alert('Enter a task');
+      await fetch(API, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ title })
+      });
+      document.getElementById('newTask').value = '';
+      fetchTasks();
+    }
+
+    async function toggleTask(id, completed) {
+      await fetch(`${API}/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ completed })
+      });
+      fetchTasks();
+    }
+
+    async function deleteTask(id) {
+      await fetch(`${API}/${id}`, { method: 'DELETE' });
+      fetchTasks();
+    }
+
+   
+    fetchTasks();
+  </script>
+</body>
+</html>
