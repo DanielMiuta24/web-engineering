@@ -45,7 +45,7 @@ This application allows users to **Create**, **Read**, **Update**, and **Delete*
 1. **Clone the repository**  
    ```bash
    git clone https://github.com/DanielMiuta24/web-engineering.git/assignment-2
-   cd todo-app
+   cd assignment-2
    ```
 2. **Install dependencies**  
    ```bash
