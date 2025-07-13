@@ -49,6 +49,13 @@ This application allows users to **Create**, **Read**, **Update**, and **Delete*
 
 ## ⚙️ Installation
 
+### 🔽 Clone the Repository
+
+```bash
+git clone https://github.com/DanielMiuta24/web-engineering.git
+cd web-engineering/assignment-2
+```
+
 ### 🔧 Backend Setup
 
 1. Navigate to the backend folder:
